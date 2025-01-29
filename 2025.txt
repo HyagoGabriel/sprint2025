@@ -1,0 +1,123 @@
+GET usuarios
+curl --location 'http://localhost:5000/api/reservas/v1/user/' \
+--data ''
+
+Post Cadastro usuario
+curl --location 'http://localhost:5000/api/reservas/v1/user/' \
+--header 'Content-Type: application/json' \
+--data-raw '{"cpf": "12345678901", 
+"email": "jujuba@gmail.com", 
+"password":"123456789", 
+"name": "jujubagame" }'
+
+Post Login Usuario
+curl --location 'http://localhost:5000/api/reservas/v1/user/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"email": "jujuba@gmail.com", 
+"password":"123456789"
+}'
+
+POST PUXANDO COM ID
+curl --location 'http://localhost:5000/api/reservas/v1/user/12345678901' \
+--data ''
+
+ATUALIZAÇAO PELO ID
+curl --location --request PUT 'http://localhost:5000/api/reservas/v1/user/12345678901' \
+--header 'Content-Type: application/json' \
+--data-raw '{"cpf": "12345678901", 
+"email": "jujuba@gmail.com", 
+"password":"123456789", 
+"name": "asdf" }'
+
+DELETE PELO ID 
+curl --location --request DELETE 'http://localhost:5000/api/reservas/v1/user/12345678901' \
+--header 'Content-Type: application/json' \
+--data-raw '{"cpf": "12345678901", 
+"email": "jujuba@gmail.com", 
+"password":"123456789", 
+"name": "asdf" }'
+
+
+
+
+
+POST CLASSROOM
+curl --location 'http://localhost:5000/api/reservas/v1/classroom/' \
+--header 'Content-Type: application/json' \
+--data '{"number":"11", 
+"description":"Cadeira", 
+"capacity":20
+}'
+
+GET CLASSROOM
+curl --location 'http://localhost:5000/api/reservas/v1/classroom/' \
+--data ''
+
+GET CLASSROOM COM ID
+curl --location 'http://localhost:5000/api/reservas/v1/classroom/11' \
+--data ''
+
+PUT CLASSROOM
+curl --location --request PUT 'http://localhost:5000/api/reservas/v1/classroom/' \
+--header 'Content-Type: application/json' \
+--data '{"number":"11", 
+"description":"SALA AAPM", 
+"capacity":20
+}'
+
+DELETE CLASSROOM
+curl --location --request DELETE 'http://localhost:5000/api/reservas/v1/classroom/B10' \
+--header 'Content-Type: application/json' \
+--data '{"number":"B10", 
+"description":"SALA AAPM", 
+"capacity":20
+}'
+
+
+
+POST
+curl --location 'http://localhost:5000/api/reservas/v1/schedule' \
+--header 'Content-Type: application/json' \
+--data '{
+  "dateStart": "2024-02-01",
+  "dateEnd": "2024-06-30",
+  "days": ["Seg", "Qua", "Sex"],
+  "user": "12345680091",
+  "classroom": "A3",
+  "timeStart": "10:00",
+  "timeEnd": "11:00"
+}
+'
+
+GET
+curl --location --request GET 'http://localhost:5000/api/reservas/v1/schedule' \
+--header 'Content-Type: application/json' \
+--data '{
+  "dateStart": "2024-02-01",
+  "dateEnd": "2024-06-30",
+  "days": ["Seg", "Qua", "Sex"],
+  "user": "12345680091",
+  "classroom": "A3",
+  "timeStart": "10:00",
+  "timeEnd": "11:00"
+}
+'
+
+GET POR ID
+curl --location 'http://localhost:5000/api/reservas/v1/schedule/A3'
+
+DELETE
+curl --location --request DELETE 'http://localhost:5000/api/reservas/v1/schedule/44'
+
+
+
+
+
+
+
+
+
+
+
+
