@@ -1,0 +1,37 @@
+CREATE DATABASE reservasenai;
+USE reservasenai;
+
+CREATE TABLE usuario( 
+    id_usuario INT AUTO_INCREMENT primary key,
+    nomecompleto VARCHAR(50) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(16) NOT NULL
+);
+
+CREATE TABLE sala (
+    id_sala INT AUTO_INCREMENT PRIMARY KEY,
+    nomesala VARCHAR(30) NOT NULL,
+    descricao VARCHAR(255) NOT NULL,
+    bloco CHAR(5) NOT NULL,
+    categoria VARCHAR(30) NOT NULL,
+    andar CHAR(7) NOT NULL
+);
+
+CREATE TABLE reserva_sala (
+    id_reserva INT AUTO_INCREMENT PRIMARY KEY,
+    data DATE NOT NULL,
+    horario_inicio TIME NOT NULL,
+    horario_fim TIME NOT NULL,
+    fk_id_sala INT NOT NULL,
+    fk_id_usuario INT NOT NULL,
+    FOREIGN KEY (fk_id_sala) REFERENCES sala(id_sala),
+    FOREIGN KEY (fk_id_usuario) REFERENCES usuario(id_usuario)
+);
+
+
+
+
+
+
+
+
